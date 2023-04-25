@@ -40,7 +40,7 @@ const Navigation = () => {
         height="40"
         className="d-inline-block align-top mx-3"
       />
-      <Navbar.Brand href="#">SOBEK FRONTEND AMM1</Navbar.Brand>
+      <Navbar.Brand href="#">SOBEK EXCHANGE AMM1</Navbar.Brand>
       <Navbar.Toggle aria-controls="nav" />
       <Navbar.Collapse id="nav" className="justify-content-end">
         <div className="d-flex justify-content-end mt-3">
