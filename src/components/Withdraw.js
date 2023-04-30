@@ -12,7 +12,8 @@ import Alert from "./Alert";
 
 import {
     removeLiquidity,
-    loadBalances
+    loadBalances,
+    loadMarketTokenBalances
 } from '../store/interactions'
 
 
@@ -28,10 +29,13 @@ const Withdraw = () => {
     const tokens = useSelector(state => state.tokens.contracts)
     const balances = useSelector(state => state.tokens.balances)
 
+    const tokenBalances = useSelector(state => state.amm.address)
+
     const amm = useSelector(state => state.amm.contract)
     const isWithdrawing = useSelector(state => state.amm.withdrawing.isWithdrawing)
     const isSuccess = useSelector(state => state.amm.withdrawing.isSuccess)
     const transactionHash = useSelector(state => state.amm.withdrawing.transactionHash)
+
     
     const dispatch = useDispatch()
 
@@ -50,6 +54,8 @@ const Withdraw = () => {
         )
 
         await loadBalances(amm, tokens, account, dispatch)
+        
+        await loadMarketTokenBalances(amm, tokens, dispatch)
 
         setShowAlert(true)
         setAmount(0)
@@ -93,10 +99,14 @@ const Withdraw = () => {
                     </Row>                
 
                     <hr />
-
                     <Row>
-                        <p><strong>SOB Balance:</strong> {balances[0]}</p>
-                        <p><strong>USD Balance:</strong> {balances[1]}</p>
+                        <p><strong>Market SOB Balance:</strong> {balances[0]}</p>
+                        <p><strong>Market USD Balance:</strong> {balances[1]}</p>
+                    </Row>
+                    <hr />    
+                    <Row>
+                        <p><strong>Account SOB Balance:</strong> {tokenBalances[0]}</p>
+                        <p><strong>Account USD Balance:</strong> {tokenBalances[1]}</p>
                     </Row>
                 </Form>
 

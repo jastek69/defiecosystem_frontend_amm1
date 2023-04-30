@@ -90,6 +90,23 @@ export const loadBalances = async (amm, tokens, account, dispatch) => {
 
 
 // -------------------------------------------------------------------------------------------
+// LOAD MARKET TOKEN BALANCES
+export const loadMarketTokenBalances = async (amm, tokens, dispatch) => {
+    const marketToken1Balance = await tokens[0].balanceOf(amm.address)
+    const marketToken2Balance = await tokens[1].balanceOf(amm.address)
+    
+    dispatch(balancesLoaded([
+        ethers.utils.formatUnits(marketToken1Balance.toString(), 'ether'),
+        ethers.utils.formatUnits(marketToken2Balance.toString(), 'ether')
+    ]))
+
+    // const shares = await amm.shares(account)                                           
+    // dispatch(sharesLoaded(ethers.utils.formatUnits(shares.toString(), 'ether')))
+}
+
+
+
+// -------------------------------------------------------------------------------------------
 // ADD LIQUIDITY
 export const addLiquidity = async (provider, amm, tokens, amounts, dispatch) => {
     try {
