@@ -100,13 +100,13 @@ const Withdraw = () => {
 
                     <hr />
                     <Row>
-                        <p><strong>Market SOB Balance:</strong> {balances[0]}</p>
-                        <p><strong>Market USD Balance:</strong> {balances[1]}</p>
+                        <p><strong>Account SOB Balance:</strong> {balances[0]}</p>
+                        <p><strong>Account USD Balance:</strong> {balances[1]}</p>
                     </Row>
                     <hr />    
                     <Row>
-                        <p><strong>Account SOB Balance:</strong> {tokenBalances[0]}</p>
-                        <p><strong>Account USD Balance:</strong> {tokenBalances[1]}</p>
+                        <p><strong>Market SOB Balance:</strong> {tokenBalances[0]}</p>
+                        <p><strong>Market USD Balance:</strong> {tokenBalances[1]}</p>
                     </Row>
                 </Form>
 
