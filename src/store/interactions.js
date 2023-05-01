@@ -10,13 +10,14 @@ import {
 import {
     setContracts,
     setSymbols,
-    balancesLoaded    
+    balancesLoaded        
     } from './reducers/tokens'
 
     import {
         setContract,
         sharesLoaded,
         swapsLoaded,
+        mtokensBalancesLoaded,
         depositRequest,
         depositSuccess,
         depositFail,
@@ -95,7 +96,7 @@ export const loadMarketTokenBalances = async (amm, tokens, dispatch) => {
     const marketToken1Balance = await tokens[0].balanceOf(amm.address)
     const marketToken2Balance = await tokens[1].balanceOf(amm.address)
     
-    dispatch(balancesLoaded([
+    dispatch(mtokensBalancesLoaded([
         ethers.utils.formatUnits(marketToken1Balance.toString(), 'ether'),
         ethers.utils.formatUnits(marketToken2Balance.toString(), 'ether')
     ]))

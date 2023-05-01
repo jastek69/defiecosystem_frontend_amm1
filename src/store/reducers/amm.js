@@ -34,6 +34,10 @@ export const amm = createSlice({ // creates the actions
             state.swaps = action.payload
         },
 
+        mtokensBalancesLoaded: (state, action) => {
+            state.balances = action.payload
+        },
+
         depositRequest: (state, action) => {
             state.depositing.isDepositing = true
             state.depositing.isSuccess = false
@@ -88,6 +92,7 @@ export const {
     setContract,
     sharesLoaded,
     swapsLoaded,
+    mtokensBalancesLoaded,
     depositRequest,
     depositSuccess,
     depositFail,
