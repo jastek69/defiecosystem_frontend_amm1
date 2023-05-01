@@ -6,6 +6,7 @@ export const amm = createSlice({ // creates the actions
         contract: null,
         shares: 0,
         swaps: [],
+        balances: [0, 0],
         depositing: {
             isDepositing: false,
             isSuccess: false,
