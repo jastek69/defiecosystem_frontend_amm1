@@ -3,10 +3,11 @@ import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Blockies from 'react-blockies'
+import Row from "react-bootstrap/Row";
 
 import logo from '../logo.png'
 
-import { loadAccount, loadBalances } from '../store/interactions'
+import { loadAccount, loadBalances, loadMarketTokenBalances } from '../store/interactions'
 
 import config from '../config.json'
 
@@ -17,11 +18,14 @@ const Navigation = () => {
   const tokens = useSelector(state => state.tokens.contracts)
   const amm = useSelector(state => state.amm.contract)
 
+//  const tokenBalances = useSelector(state => state.amm.balances)
+
   const dispatch = useDispatch()
 
   const connectHandler = async () => {
     const account = await loadAccount(dispatch)
-    await loadBalances(amm, tokens, account, dispatch)
+    await loadBalances(amm, tokens, account, dispatch)  
+    await loadMarketTokenBalances(amm, tokens, dispatch)  
   }
 
     const networkHandler = async (e) => {
@@ -75,6 +79,10 @@ const Navigation = () => {
       </div>
         
       </Navbar.Collapse>
+      {/* <Row>
+          <p><strong>Market SOB Balance:</strong> {tokenBalances[0]}</p>
+          <p><strong>Market USD Balance:</strong> {tokenBalances[1]}</p>
+      </Row> */}
     </Navbar>
   );
 }

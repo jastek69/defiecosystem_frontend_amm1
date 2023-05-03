@@ -29,7 +29,7 @@ const Withdraw = () => {
     const tokens = useSelector(state => state.tokens.contracts)
     const balances = useSelector(state => state.tokens.balances)
 
-    const tokenBalances = useSelector(state => state.amm.balances)
+ //   const tokenBalances = useSelector(state => state.amm.balances)
 
     const amm = useSelector(state => state.amm.contract)
     const isWithdrawing = useSelector(state => state.amm.withdrawing.isWithdrawing)
@@ -55,7 +55,7 @@ const Withdraw = () => {
 
         await loadBalances(amm, tokens, account, dispatch)
         
-        await loadMarketTokenBalances(amm, tokens, dispatch)
+      //  await loadMarketTokenBalances(amm, tokens, dispatch)
 
         setShowAlert(true)
         setAmount(0)
@@ -104,10 +104,7 @@ const Withdraw = () => {
                         <p><strong>Account USD Balance:</strong> {balances[1]}</p>
                     </Row>
                     <hr />    
-                    <Row>
-                        <p><strong>Market SOB Balance:</strong> {tokenBalances[0]}</p>
-                        <p><strong>Market USD Balance:</strong> {tokenBalances[1]}</p>
-                    </Row>
+                    
                 </Form>
 
             ) : (
