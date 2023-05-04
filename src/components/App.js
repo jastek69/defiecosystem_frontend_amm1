@@ -35,10 +35,10 @@ function App() {
   
   const dispatch = useDispatch() // hook to useDispatch function
   
-  const account = useSelector(state => state.provider.account)
-  const tokens = useSelector(state => state.tokens.contracts)
-  const amm = useSelector(state => state.amm.contract)
-  const tokenBalances = useSelector(state => state.amm.balances)
+//  const account = useSelector(state => state.provider.account)
+  // const tokens = useSelector(state => state.tokens.contracts)
+  // const amm = useSelector(state => state.amm.contract)
+   const tokenBalances = useSelector(state => state.amm.balances)
 
   const loadBlockchainData = async () => { // see interactions
     // Initiate provider
@@ -59,10 +59,10 @@ function App() {
     })
     
     // Initiate contract
-    await loadTokens(provider, chainId, dispatch)
-    await loadAMM(provider, chainId, dispatch)
-    await loadBalances(amm, tokens, account, dispatch)
-    await loadMarketTokenBalances(amm, tokens, dispatch)
+    const tokens = await loadTokens(provider, chainId, dispatch)
+    const amm = loadAMM(provider, chainId, dispatch)
+  //  await loadMarketTokenBalances(amm, tokens, dispatch)
+    
   }
 
   useEffect(() => {

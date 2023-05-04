@@ -63,6 +63,9 @@ export const loadTokens = async (provider, chainId, dispatch) => {
 
     dispatch(setContracts([usd, sobek]))
     dispatch(setSymbols([await usd.symbol(), await sobek.symbol()]))
+
+    return ({usd, sobek})
+
 }
 
 export const loadAMM = async (provider, chainId, dispatch) => {
@@ -95,14 +98,16 @@ export const loadBalances = async (amm, tokens, account, dispatch) => {
 export const loadMarketTokenBalances = async (amm, tokens, dispatch) => {
     const marketToken1Balance = await tokens[0].balanceOf(amm.address)
     const marketToken2Balance = await tokens[1].balanceOf(amm.address)
+
+    console.log(marketToken1Balance)
+    console.log(marketToken2Balance)
     
     dispatch(mtokensBalancesLoaded([
         ethers.utils.formatUnits(marketToken1Balance.toString(), 'ether'),
         ethers.utils.formatUnits(marketToken2Balance.toString(), 'ether')
     ]))
 
-console.log(marketToken1Balance)
-console.log(marketToken2Balance)
+
 
     // const shares = await amm.shares(account)                                           
     // dispatch(sharesLoaded(ethers.utils.formatUnits(shares.toString(), 'ether')))
