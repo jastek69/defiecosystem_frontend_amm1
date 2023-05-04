@@ -12,7 +12,8 @@ import Alert from "./Alert";
 
 import {
     addLiquidity,
-    loadBalances
+    loadBalances,
+    loadMarketTokenBalances
 } from '../store/interactions'
 
 
@@ -27,6 +28,8 @@ const Deposit = () => {
     const tokens = useSelector(state => state.tokens.contracts)
     const symbols = useSelector(state => state.tokens.symbols)
     const balances = useSelector(state => state.tokens.balances)
+
+    const tokenBalances = useSelector(state => state.amm.balances)
 
     const amm = useSelector(state => state.amm.contract)
     const isDepositing = useSelector(state => state.amm.depositing.isDepositing)
@@ -75,6 +78,8 @@ const Deposit = () => {
         )
 
         await loadBalances(amm, tokens, account, dispatch)
+
+        await loadMarketTokenBalances(amm, tokens, dispatch)
 
         setShowAlert(true)
     }

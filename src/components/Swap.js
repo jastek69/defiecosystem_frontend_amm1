@@ -14,7 +14,8 @@ import Alert from "./Alert";
 
 import {
     swap,
-    loadBalances
+    loadBalances,
+    loadMarketTokenBalances
 } from '../store/interactions'
 
 
@@ -35,6 +36,8 @@ const Swap = () => {
     const tokens = useSelector(state => state.tokens.contracts)
     const symbols = useSelector(state => state.tokens.symbols)
     const balances = useSelector(state => state.tokens.balances)
+
+    const tokenBalances = useSelector(state => state.amm.balances)
 
     const amm = useSelector(state => state.amm.contract)
     const isSwapping = useSelector(state => state.amm.swapping.isSwapping)
@@ -95,6 +98,8 @@ const Swap = () => {
 
         await loadBalances(amm, tokens, account, dispatch)
         await getPrice()
+
+        await loadMarketTokenBalances(amm, tokens, dispatch)
 
         setShowAlert(true)
     }
