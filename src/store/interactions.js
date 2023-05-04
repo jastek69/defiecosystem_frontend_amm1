@@ -64,7 +64,7 @@ export const loadTokens = async (provider, chainId, dispatch) => {
     dispatch(setContracts([usd, sobek]))
     dispatch(setSymbols([await usd.symbol(), await sobek.symbol()]))
 
-    return ({usd, sobek})
+    return [usd, sobek]
 
 }
 

@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 
 import logo from '../logo.png'
 
-import { loadAccount, loadBalances, loadMarketTokenBalances } from '../store/interactions'
+import { loadAccount, loadBalances } from '../store/interactions'
 
 import config from '../config.json'
 
@@ -23,9 +23,8 @@ const Navigation = () => {
   const dispatch = useDispatch()
 
   const connectHandler = async () => {
-    const account = await loadAccount(dispatch)
-    await loadBalances(amm, tokens, account, dispatch)  
-    await loadMarketTokenBalances(amm, tokens, dispatch)  
+  const account = await loadAccount(dispatch)
+  await loadBalances(amm, tokens, account, dispatch)     
   }
 
     const networkHandler = async (e) => {

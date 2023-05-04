@@ -21,7 +21,6 @@ import {
   loadAccount,
   loadTokens,
   loadAMM,
-  loadBalances,
   loadMarketTokenBalances
   } from '../store/interactions'
 
@@ -61,7 +60,7 @@ function App() {
     // Initiate contract
     const tokens = await loadTokens(provider, chainId, dispatch)
     const amm = loadAMM(provider, chainId, dispatch)
-  //  await loadMarketTokenBalances(amm, tokens, dispatch)
+    await loadMarketTokenBalances(amm, tokens, dispatch)
     
   }
 
