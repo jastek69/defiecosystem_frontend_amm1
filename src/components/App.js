@@ -59,7 +59,7 @@ function App() {
     
     // Initiate contract
     const tokens = await loadTokens(provider, chainId, dispatch)
-    const amm = loadAMM(provider, chainId, dispatch)
+    const amm = await loadAMM(provider, chainId, dispatch)
     await loadMarketTokenBalances(amm, tokens, dispatch)
     
   }
