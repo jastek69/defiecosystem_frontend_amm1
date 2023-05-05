@@ -5,7 +5,6 @@ import { Container } from 'react-bootstrap'
 import Row from "react-bootstrap/Row";
 import { ethers } from 'ethers'
 
-
 // Components
 import Navigation from './Navigation';
 import Tabs from './Tabs'
@@ -13,7 +12,6 @@ import Swap from './Swap'
 import Deposit from './Deposit'
 import Withdraw from './Withdraw'
 import Charts from './Charts'
-
 
 import {
   loadProvider,
@@ -34,10 +32,7 @@ function App() {
   
   const dispatch = useDispatch() // hook to useDispatch function
   
-//  const account = useSelector(state => state.provider.account)
-  // const tokens = useSelector(state => state.tokens.contracts)
-  // const amm = useSelector(state => state.amm.contract)
-   const tokenBalances = useSelector(state => state.amm.balances)
+  const tokenBalances = useSelector(state => state.amm.balances)
 
   const loadBlockchainData = async () => { // see interactions
     // Initiate provider
@@ -70,14 +65,10 @@ function App() {
 
   return(
     <Container>
-      <HashRouter>
-        
+      <HashRouter>        
         <Navigation />
-
         <hr />
-
         <Tabs />
-
         <Routes>
           <Route exact path="/" element={<Swap />} />
           <Route path="/deposit" element={<Deposit />} />

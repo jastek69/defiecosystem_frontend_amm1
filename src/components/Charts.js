@@ -12,7 +12,7 @@ import Loading from "./Loading";
 
 import {
     loadAllSwaps,
-    loadMarketTokenBalances
+    
 } from '../store/interactions'
 
 
@@ -30,7 +30,7 @@ const Charts = () => {
 
     const dispatch = useDispatch()
 
-    
+   
 
     useEffect(() => {
         if(provider && amm ) {

@@ -3,7 +3,6 @@ import Navbar from 'react-bootstrap/Navbar'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Blockies from 'react-blockies'
-import Row from "react-bootstrap/Row";
 
 import logo from '../logo.png'
 
@@ -78,10 +77,7 @@ const Navigation = () => {
       </div>
         
       </Navbar.Collapse>
-      {/* <Row>
-          <p><strong>Market SOB Balance:</strong> {tokenBalances[0]}</p>
-          <p><strong>Market USD Balance:</strong> {tokenBalances[1]}</p>
-      </Row> */}
+      
     </Navbar>
   );
 }

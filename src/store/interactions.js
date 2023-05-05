@@ -107,10 +107,6 @@ export const loadMarketTokenBalances = async (amm, tokens, dispatch) => {
         ethers.utils.formatUnits(marketToken2Balance.toString(), 'ether')
     ]))
 
-
-
-    // const shares = await amm.shares(account)                                           
-    // dispatch(sharesLoaded(ethers.utils.formatUnits(shares.toString(), 'ether')))
 }
 
 
