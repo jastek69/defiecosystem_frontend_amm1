@@ -11,8 +11,7 @@ import { useEffect } from "react";
 import Loading from "./Loading";
 
 import {
-    loadAllSwaps,
-    
+    loadAllSwaps    
 } from '../store/interactions'
 
 

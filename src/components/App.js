@@ -78,8 +78,8 @@ function App() {
 
         <hr />
         <Row>
-          <p><strong>Market SOB Balance:</strong> {tokenBalances[0]}</p>
-          <p><strong>Market USD Balance:</strong> {tokenBalances[1]}</p>
+          <p><strong>Market USD Balance:</strong> {tokenBalances[0]}</p>
+          <p><strong>Market SOB Balance:</strong> {tokenBalances[1]}</p>
         </Row>
         <hr />
 
